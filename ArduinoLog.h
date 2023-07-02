@@ -42,14 +42,16 @@ typedef void (*printfunction)(Print*, int);
 #define LOG_LEVEL_ERROR   2
 #define LOG_LEVEL_WARNING 3
 #define LOG_LEVEL_INFO    4
-#define LOG_LEVEL_NOTICE  4
-#define LOG_LEVEL_TRACE   5
-#define LOG_LEVEL_VERBOSE 6
+#define LOG_LEVEL_NOTICE  5
+#define LOG_LEVEL_TRACE   6
+#define LOG_LEVEL_VERBOSE 7
+
+#define LOG_LEVEL_CHAR_PREFIX 	"FEWINTV"
 
 #define CR "\n"
 #define LF "\r"
 #define NL "\n\r"
-#define LOGGING_VERSION 1_0_4
+#define LOGGING_VERSION 1_0_5
 
 /**
  * ArduinoLog is a minimalistic framework to help the programmer output log statements to an output of choice, 
@@ -354,7 +356,7 @@ private:
 		}
 
 		if (_showLevel) {
-			static const char levels[] = "FEWITV";
+			static const char levels[] = LOG_LEVEL_CHAR_PREFIX;
 			_logOutput->print(levels[level - 1]);
 			_logOutput->print(": ");
 		}
